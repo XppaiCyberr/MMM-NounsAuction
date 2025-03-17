@@ -1,0 +1,74 @@
+/* MMM-NounsAuction.css */
+.MMM-NounsAuction .auction-container {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .MMM-NounsAuction .auction-row {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+  }
+  
+  .MMM-NounsAuction .image-container {
+    flex: 0 0 auto;
+    margin-right: 20px;
+    text-align: center;
+  }
+  
+  .MMM-NounsAuction .noun-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .MMM-NounsAuction .noun-id {
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  .MMM-NounsAuction .details-container {
+    flex: 1 1 auto;
+  }
+  
+  .MMM-NounsAuction .auction-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .MMM-NounsAuction .auction-table tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .MMM-NounsAuction .auction-table tr:last-child {
+    border-bottom: none;
+  }
+  
+  .MMM-NounsAuction .label-cell {
+    padding: 5px 10px 5px 0;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    white-space: nowrap;
+  }
+  
+  .MMM-NounsAuction .value-cell {
+    padding: 5px 0;
+    font-size: 14px;
+    color: #FFFFFF;
+  }
+  
+  .MMM-NounsAuction .raw-data {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    font-size: 12px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+  }
+  
+  .MMM-NounsAuction .error-message {
+    color: #ff6b6b;
+    font-size: 14px;
+  }
