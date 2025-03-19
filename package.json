@@ -1,6 +1,6 @@
 {
     "name": "MMM-NounsAuction",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "description": "MagicMirror² module to display Ethereum contract data, specifically for Nouns DAO auctions",
     "main": "MMM-NounsAuction.js",
     "scripts": {
@@ -18,7 +18,8 @@
     "author": "XppaiCyberr",
     "license": "MIT",
     "dependencies": {
-      "ethers": "^5.0.8"
+      "ethers": "^5.0.8",
+      "@ensdomains/ensjs": "^4.0.2"
     },
     "repository": {
     "type": "git",

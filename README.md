@@ -1,6 +1,6 @@
 # MMM-NounsAuction
 
-A [MagicMirror²](https://github.com/MichMich/MagicMirror) module that displays real-time Nouns auction information from the Ethereum blockchain. This module shows the current Nouns NFT auction status, including the current bid, end time, bidder information, and the Noun image.
+A [MagicMirror²](https://github.com/MichMich/MagicMirror) module that displays real-time Nouns auction information from the Ethereum blockchain. This module shows the current Nouns NFT auction status, including the current bid, end time, bidder information (with ENS support), and the Noun image.
 
 ## Preview
 
@@ -12,7 +12,7 @@ A [MagicMirror²](https://github.com/MichMich/MagicMirror) module that displays 
 - Shows the Noun NFT image
 - Displays current bid amount in ETH
 - Shows auction end time
-- Displays current highest bidder's address
+- Displays current highest bidder's ENS name (if available) or address
 - Indicates if the auction is active or settled
 - Configurable update interval
 - Customizable display options
@@ -68,6 +68,7 @@ Add the following configuration to your `config/config.js` file:
 ## Dependencies
 
 - [ethers.js](https://docs.ethers.org/v5/) - For Ethereum blockchain interaction
+- [@ensdomains/ensjs](https://github.com/ensdomains/ensjs) - For ENS name resolution
 
 ## Updating
 
@@ -99,4 +100,5 @@ If you find this module helpful, please consider:
 - [MagicMirror²](https://github.com/MichMich/MagicMirror) project
 - [Nouns DAO](https://nouns.wtf/) for the NFT auction platform 
 - [Nouns Pics](https://noun.pics) for the Nouns Image API 
+- [ENS](https://ens.domains/) for Ethereum Name Service integration
 
