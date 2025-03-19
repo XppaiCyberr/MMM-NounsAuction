@@ -16,6 +16,7 @@ Module.register("MMM-NounsAuction", {
       Log.info("Starting module: " + this.name);
       this.auctionData = null;
       this.loaded = false;
+      this.ensName = null;
       this.scheduleUpdate();
     },
   
@@ -94,7 +95,7 @@ Module.register("MMM-NounsAuction", {
         const fields = [
           { label: "Current Bid", value: `${this.formatEther(this.auctionData.amount)} ETH` },
           { label: "End Time", value: this.formatTimestamp(this.auctionData.endTime) },
-          { label: "Current Bidder", value: this.truncateAddress(this.auctionData.bidder) },
+          { label: "Current Bidder", value: this.ensName || this.truncateAddress(this.auctionData.bidder) },
           { label: "Status", value: this.auctionData.settled ? "Settled" : "Active" }
         ];
   
@@ -141,7 +142,8 @@ Module.register("MMM-NounsAuction", {
   
     getScripts: function() {
       return [
-        this.file('node_modules/ethers/dist/ethers.umd.min.js')
+        this.file('node_modules/ethers/dist/ethers.umd.min.js'),
+        this.file('node_modules/@ensdomains/ensjs/dist/ensjs.umd.min.js')
       ];
     },
   
@@ -177,9 +179,25 @@ Module.register("MMM-NounsAuction", {
         } else {
           this.auctionData = payload.data;
           this.error = null;
+          // Resolve ENS name for the bidder
+          this.resolveENSName(this.auctionData.bidder);
         }
         this.loaded = true;
         this.updateDom();
+      }
+    },
+
+    resolveENSName: async function(address) {
+      try {
+        const provider = new ethers.providers.JsonRpcProvider(this.config.rpcUrl);
+        const ensName = await provider.lookupAddress(address);
+        if (ensName) {
+          this.ensName = ensName;
+          this.updateDom();
+        }
+      } catch (error) {
+        console.error("Error resolving ENS name:", error);
+        this.ensName = null;
       }
     },
   
